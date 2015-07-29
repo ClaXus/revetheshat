@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32"
+   height="32"
+   id="svg4136"
+   version="1.1"
+   inkscape:version="0.91pre3 r13670"
+   viewBox="0 0 32 32"
+   sodipodi:docname="TargetScript icon.svg"
+   inkscape:export-filename="D:\Git clones\revealers\.src\Revealers - The shattering\Assets\Gizmos\TargetScript icon.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4138">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4725"
+       x="-0.06"
+       width="1.12"
+       y="-0.06"
+       height="1.12">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.7"
+         id="feGaussianBlur4727" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7.9180417"
+     inkscape:cx="27.800139"
+     inkscape:cy="14.660106"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:grid-bbox="true"
+     inkscape:document-units="px"
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4141">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     style="display:inline">
+    <path
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4725)"
+       d="M 16,2 A 14,14 0 0 0 2,16 14,14 0 0 0 16,30 14,14 0 0 0 30,16 14,14 0 0 0 16,2 Z m 0.982422,3.0488281 a 11,11 0 0 1 9.964844,9.9687499 l -3.447266,0 0,1.964844 3.451172,0 a 11,11 0 0 1 -9.96875,9.964844 l 0,-3.447266 -1.964844,0 0,3.451172 a 11,11 0 0 1 -9.9648436,-9.96875 l 3.4472656,0 0,-1.964844 -3.4511719,0 A 11,11 0 0 1 15.017578,5.0527344 l 0,3.4472656 1.964844,0 0,-3.4511719 z M 16,15 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 z"
+       id="path4684"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Copie de Layer 1"
+     id="g4705"
+     style="display:inline">
+    <path
+       id="path4707"
+       d="M 16,2 A 14,14 0 0 0 2,16 14,14 0 0 0 16,30 14,14 0 0 0 30,16 14,14 0 0 0 16,2 Z m 0.982422,3.0488281 a 11,11 0 0 1 9.964844,9.9687499 l -3.447266,0 0,1.964844 3.451172,0 a 11,11 0 0 1 -9.96875,9.964844 l 0,-3.447266 -1.964844,0 0,3.451172 a 11,11 0 0 1 -9.9648436,-9.96875 l 3.4472656,0 0,-1.964844 -3.4511719,0 A 11,11 0 0 1 15.017578,5.0527344 l 0,3.4472656 1.964844,0 0,-3.4511719 z M 16,15 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 z"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

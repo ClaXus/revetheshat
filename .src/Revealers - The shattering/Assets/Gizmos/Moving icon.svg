@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32"
+   height="32"
+   id="svg4136"
+   version="1.1"
+   inkscape:version="0.91pre3 r13670"
+   viewBox="0 0 32 32"
+   sodipodi:docname="Moving icon.svg"
+   inkscape:export-filename="D:\Git clones\revealers\.src\Revealers - The shattering\Assets\Gizmos\Moving icon.png"
+   inkscape:export-xdpi="82"
+   inkscape:export-ydpi="82">
+  <defs
+     id="defs4138">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4712"
+       x="-0.068304043"
+       width="1.1366081"
+       y="-0.053496214"
+       height="1.1069924">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.62412239"
+         id="feGaussianBlur4714" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.197802"
+     inkscape:cx="-11.997057"
+     inkscape:cy="9.800172"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:grid-bbox="true"
+     inkscape:document-units="px"
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4141">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Layer2"
+     id="g4692">
+    <path
+       sodipodi:nodetypes="cccccccccccccccc"
+       inkscape:connector-curvature="0"
+       id="path4694"
+       d="m 24.449515,2.0584866 c 0,0 1.151107,5.5698942 0.872245,8.3618834 l -1.223827,0.160243 c 0.0076,4.511934 3.172884,12.137438 2.656559,12.560499 l 0.210406,0.852451 -6.264243,1.769116 c -0.04074,-0.532821 -0.558428,-0.588695 -0.904134,-0.816549 l -1.983182,1.003524 c -0.257415,0.189072 -0.30312,0.403051 -0.290118,0.623937 L 5.4038586,30 5.212605,28.847161 c -1.6246828,-6.426672 8.391787,-7.253852 10.169479,-9.547413 1.500153,-2.129608 -0.45787,-5.400866 -0.507197,-8.498875 l -1.610958,-0.02862 c 0,0 -1.218056,-5.9029644 -0.338841,-8.7722482 z"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter4712)" />
+  </g>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     style="display:inline">
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 24.449515,2.0584866 c 0,0 1.151107,5.5698942 0.872245,8.3618834 l -1.223827,0.160243 c 0.0076,4.511934 3.172884,12.137438 2.656559,12.560499 l 0.210406,0.852451 -6.264243,1.769116 c -0.04074,-0.532821 -0.558428,-0.588695 -0.904134,-0.816549 l -1.983182,1.003524 c -0.257415,0.189072 -0.30312,0.403051 -0.290118,0.623937 L 5.4038586,30 5.212605,28.847161 c -1.6246828,-6.426672 8.391787,-7.253852 10.169479,-9.547413 1.500153,-2.129608 -0.45787,-5.400866 -0.507197,-8.498875 l -1.610958,-0.02862 c 0,0 -1.218056,-5.9029644 -0.338841,-8.7722482 z"
+       id="path4686"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccccccccccc" />
+  </g>
+</svg>
