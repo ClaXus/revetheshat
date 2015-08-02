@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public abstract class ControlScript : MonoBehaviour {
+public abstract class ControlScript : NetworkBehaviour {
     private Vector3 _prevDirection = Vector3.zero;
     private Quaternion _prevRotation = Quaternion.identity;
     private Vector3 _direction = Vector3.zero;
@@ -50,4 +51,7 @@ public abstract class ControlScript : MonoBehaviour {
         }
         return false;
     }
+
+
+
 }

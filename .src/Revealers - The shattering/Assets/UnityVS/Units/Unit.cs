@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(Transform))]
 [RequireComponent(typeof(CharacterController))]
@@ -10,14 +11,11 @@ public class Unit : MonoBehaviour {
     [SerializeField]
     CharacterController _CharacterController;
     [SerializeField]
-    ControlScript _ControlScript;
-    [SerializeField]
-    NetworkView _Networkview;
+	Player _ControlScript;
 
     public Transform transform {get { return _transform; }set { _transform = value; }}
     public CharacterController charactercontroller{get { return _CharacterController; }set { _CharacterController = value; }}
-    public ControlScript controlscript {get { return _ControlScript; }set { _ControlScript = value; }}
-    public NetworkView networkview {get { return _Networkview;} set { _Networkview = value;}}
+	public Player controlscript {get { return _ControlScript; }set { _ControlScript = value; }}
 
 	// Use this for initialization
 	void Start () {
@@ -45,15 +43,15 @@ public class Unit : MonoBehaviour {
     /// </summary>
     public void _RefreshControls()
     {
-        if (controlscript && controlscript.enabled && controlscript.hasChanged())
+        if (controlscript && controlscript.enabled)
         {
             _controlvector = controlscript.direction;
             _controlvector = transform.TransformDirection(_controlvector);
             _rotation = controlscript.rotation;
-            if (networkview)
+            /*if (networkview)
             {
                 networkview.RPC("_NetworkRefeshControls", RPCMode.Others, _controlvector, _rotation);
-            }
+            }*/
         }
     }
 
@@ -62,7 +60,7 @@ public class Unit : MonoBehaviour {
     /// </summary>
     /// <param name="control">Move input control. XZ for plan move, Y for jump/crouch</param>
     /// <param name="rot">Angle of rotation it is a Quaternion who represent the 3D angle of rotation.</param>
-    [RPC]
+    /*[RPC]
     void _NetworkRefeshControls(Vector3 control, Quaternion rot)
     {
         _controlvector = control;
@@ -82,7 +80,7 @@ public class Unit : MonoBehaviour {
             stream.Serialize(ref recpos);
             this.transform.position = recpos;
         }
-    }
+    }*/
     #endregion Controls
 
     #region Details

@@ -8,7 +8,7 @@ public class GameManagerFastGame : MonoBehaviour {
 	GameObject[] GameUIDiscoveredOnF;
 
 	[SerializeField]
-	PlayerControlScript pcs;
+	Player pcs;
 
 	[SerializeField]
 	Text timerText;
@@ -18,9 +18,12 @@ public class GameManagerFastGame : MonoBehaviour {
 
 	[SerializeField]
 	Camera placementCamera;
-	
+
 	[SerializeField]
-	Camera actionCamera;
+	GameObject myPlayerPosition;
+
+	[SerializeField]
+	GameObject myPlayer;
 
 	[SerializeField]
 	Text messageText;
@@ -37,13 +40,11 @@ public class GameManagerFastGame : MonoBehaviour {
 
 	public int currentState;
 
-
 	// Use this for initialization
 	void Start () {
 		currentState = (int)GamesState.PlacementState;
 		hideOrShowGameUiOnF ();
 		panelButtons.gameObject.SetActive (false);
-		actionCamera.gameObject.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -73,7 +74,6 @@ public class GameManagerFastGame : MonoBehaviour {
 		hideOrShowGameUiOnF ();
 		panelButtons.gameObject.SetActive (true);
 		placementCamera.gameObject.SetActive (false);
-		actionCamera.gameObject.SetActive (true);
 		messageText.text = "Défendez le totem !";
 	}
 

@@ -53,9 +53,9 @@ public class UnitEditor : Editor {
         EditorGUILayout.PropertyField(characterController, true);
         EditorGUILayout.PropertyField(controlScript, true);
         EditorGUILayout.Separator(); // ---------------------------------------------
-        EditorGUILayout.LabelField("    Network (facultative)", labelStyle);
-        EditorGUILayout.Separator(); // ---------------------------------------------
-        EditorGUILayout.PropertyField(networkView, true);
+        //EditorGUILayout.LabelField("    Network (facultative)", labelStyle);
+        //EditorGUILayout.Separator(); // ---------------------------------------------
+        //EditorGUILayout.PropertyField(networkView, true);
         EditorGUILayout.Separator(); // ---------------------------------------------
         EditorGUILayout.LabelField("    Details", labelStyle);
         EditorGUILayout.Separator(); // ---------------------------------------------

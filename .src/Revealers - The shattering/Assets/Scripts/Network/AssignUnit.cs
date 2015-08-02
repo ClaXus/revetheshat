@@ -39,7 +39,7 @@ public class AssignUnit : MonoBehaviour {
             if (Network.player == player)
             {
 
-                characters[nb].GetComponent<PlayerControlScript>().enabled = true;
+                characters[nb].GetComponent<Player>().enabled = true;
                 characters[nb].GetComponentInChildren<Camera>().enabled = true;
                 characters[nb].GetComponentInChildren<AudioListener>().enabled = true;
                 Debug.Log("You got a slot");

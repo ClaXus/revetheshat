@@ -1,8 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.Networking;
+using System.Collections.Generic;
 
-public class NetworkManager : MonoBehaviour {
+public class MyNetworkManager : NetworkManager {
+
+	public List<GameObject> playersToAdd;
+
+	void Start(){
+		playersToAdd = new List<GameObject>();
+		
+	}
+
+	public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId){
+		GameObject player = (GameObject)Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+		playersToAdd.Add(player);
+		NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+
+		//NetworkServer.AddPlayerForConnection (conn, playersToAdd [indexPlayer], playerControllerId);
+		//indexPlayer++;
+	}
+
+	/* 
+	 * 
 
 	private HostData[] hostList;
     [SerializeField]
@@ -53,8 +74,8 @@ public class NetworkManager : MonoBehaviour {
         {
             for (int i = 0; i < hostList.Length; i++)
             {
-                /*if (GUI.Button(new Rect(400, 100 + (110 * i), 300, 100), hostList[i].gameName))
-                    JoinServer(hostList[i]);*/
+                //if (GUI.Button(new Rect(400, 100 + (110 * i), 300, 100), hostList[i].gameName))
+                //    JoinServer(hostList[i]);
                 GameObject host = Instantiate(graphicalHost) as GameObject;
                 host.transform.SetParent(graphicalHostList.transform, false);
                 host.GetComponentInChildren<Text>().text = hostList[i].gameName;
@@ -73,5 +94,5 @@ public class NetworkManager : MonoBehaviour {
 	void OnConnectedToServer()
 	{
 		Debug.Log("Server Joined");
-	}
+	}*/
 }

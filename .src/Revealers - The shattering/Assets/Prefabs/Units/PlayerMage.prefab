@@ -48,14 +48,13 @@ GameObject:
   - 4: {fileID: 435774}
   - 143: {fileID: 14335080}
   - 114: {fileID: 11430672}
+  - 114: {fileID: 11471928}
   - 114: {fileID: 11493356}
   - 114: {fileID: 11420868}
   - 114: {fileID: 11424734}
-  - 114: {fileID: 11421812}
-  - 54: {fileID: 5445544}
-  - 135: {fileID: 13570358}
+  - 54: {fileID: 5440908}
   m_Layer: 8
-  m_Name: PlayerBase
+  m_Name: PlayerMage
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +162,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157104}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &5445544
+--- !u!54 &5440908
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -172,8 +171,8 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: .5
-  m_UseGravity: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -223,42 +222,24 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 175
-    i1: 201
-    i2: 252
-    i3: 58
-    i4: 119
-    i5: 149
-    i6: 245
-    i7: 20
-    i8: 232
-    i9: 46
-    i10: 102
-    i11: 188
-    i12: 181
-    i13: 69
-    i14: 204
-    i15: 31
+    i0: 225
+    i1: 28
+    i2: 21
+    i3: 191
+    i4: 150
+    i5: 59
+    i6: 225
+    i7: 68
+    i8: 90
+    i9: 161
+    i10: 216
+    i11: 120
+    i12: 66
+    i13: 3
+    i14: 160
+    i15: 156
   m_ServerOnly: 1
-  m_LocalPlayerAuthority: 1
---- !u!114 &11421812
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9912aef1512354f4ebb5cabb7e2ae2ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellButtons: []
-  associateSpells: []
-  associateJobs: []
-  myPlayer: {fileID: 435774}
-  rateSync: 15
-  gameObject: {fileID: 196860}
-  ridgidbody: {fileID: 5445544}
+  m_LocalPlayerAuthority: 0
 --- !u!114 &11424734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,7 +255,7 @@ MonoBehaviour:
   m_SendInterval: .100000001
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
-  m_SyncSpin: 1
+  m_SyncSpin: 0
   m_MovementTheshold: .00100000005
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
@@ -292,7 +273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transform: {fileID: 435774}
   _CharacterController: {fileID: 14335080}
-  _ControlScript: {fileID: 11421812}
+  _ControlScript: {fileID: 0}
+  _Networkview: {fileID: 0}
   _name: Default
   _clan: NoClan
   _title: Title
@@ -324,6 +306,26 @@ MonoBehaviour:
   layermask:
     serializedVersion: 2
     m_Bits: 4294967291
+--- !u!114 &11471928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc25712f53fbf94f9b6be1119da1e4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellButtons:
+  - {fileID: 0}
+  gm: {fileID: 0}
+  associateSpells:
+  - {fileID: 0}
+  - {fileID: 0}
+  associateJobs:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &11493356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -351,18 +353,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148454}
   m_Enabled: 1
---- !u!135 &13570358
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196860}
-  m_Material: {fileID: 13400000, guid: e547ccac22417d349bba64cac348a862, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: .5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &14335080
 CharacterController:
   m_ObjectHideFlags: 1
@@ -389,19 +379,19 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: spellButtons.Array.size
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: associateJobs.Array.size
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: associateSpells.Array.size
-      value: 9
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SyncSpin
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TransformSyncMode
@@ -489,7 +479,7 @@ Prefab:
       objectReference: {fileID: 435774}
     - target: {fileID: 0}
       propertyPath: m_LocalPlayerAuthority
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
@@ -501,97 +491,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: spellButtons.Array.data[0]
-      value: 
-      objectReference: {fileID: 11443794, guid: c5fa0628b42fc454aa9fff6fdf421e37,
-        type: 2}
-    - target: {fileID: 0}
-      propertyPath: spellButtons.Array.data[1]
-      value: 
-      objectReference: {fileID: 11463224, guid: d7601caf48c1a4a46a3697989ef17cd6,
-        type: 2}
-    - target: {fileID: 0}
-      propertyPath: spellButtons.Array.data[2]
-      value: 
-      objectReference: {fileID: 11462058, guid: 4b3cc2d8b9671a94d8e400d9c6533bad,
-        type: 2}
-    - target: {fileID: 0}
-      propertyPath: spellButtons.Array.data[3]
-      value: 
-      objectReference: {fileID: 11424578, guid: a86f62b2cc26abf44b94b48817b94066,
-        type: 2}
-    - target: {fileID: 0}
-      propertyPath: spellButtons.Array.data[4]
-      value: 
-      objectReference: {fileID: 11469918, guid: ee9e5fa2bac97ba47bebc9a65c32bd53,
-        type: 2}
-    - target: {fileID: 0}
-      propertyPath: spellButtons.Array.data[5]
-      value: 
-      objectReference: {fileID: 11489184, guid: 3d56b82ba9431d14cb80487807e2e6d4,
-        type: 2}
-    - target: {fileID: 0}
-      propertyPath: myPlayer
-      value: 
-      objectReference: {fileID: 435774}
-    - target: {fileID: 0}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: CharacterCam
-      value: 
-      objectReference: {fileID: 2079156}
-    - target: {fileID: 0}
-      propertyPath: gameObject
-      value: 
-      objectReference: {fileID: 196860}
-    - target: {fileID: 0}
-      propertyPath: ridgidbody
-      value: 
-      objectReference: {fileID: 5445544}
-    - target: {fileID: 0}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: e547ccac22417d349bba64cac348a862,
-        type: 2}
-    - target: {fileID: 0}
-      propertyPath: _ControlScript
-      value: 
-      objectReference: {fileID: 11421812}
-    - target: {fileID: 0}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_AngularDrag
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
