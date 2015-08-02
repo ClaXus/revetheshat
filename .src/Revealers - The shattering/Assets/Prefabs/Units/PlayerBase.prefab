@@ -239,7 +239,7 @@ MonoBehaviour:
     i13: 69
     i14: 204
     i15: 31
-  m_ServerOnly: 1
+  m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &11421812
 MonoBehaviour:
@@ -259,6 +259,7 @@ MonoBehaviour:
   rateSync: 15
   gameObject: {fileID: 196860}
   ridgidbody: {fileID: 5445544}
+  myCamera: {fileID: 2079156}
 --- !u!114 &11424734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -477,7 +478,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_ServerOnly
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: transform
@@ -594,6 +595,10 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 2079156}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196860}

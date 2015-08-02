@@ -30,6 +30,8 @@ public class Player : NetworkBehaviour {
 	[SerializeField]
 	Rigidbody ridgidbody;
 
+	[SerializeField]
+	Camera myCamera;
 
 	private bool isRunning = false;
 	private Button currentButton;
@@ -42,10 +44,13 @@ public class Player : NetworkBehaviour {
 	private Quaternion _rotation = Quaternion.identity;
 	
 	void Start(){
+		if (!isLocalPlayer)
+			myCamera.enabled = (false);
 	}
 	
 	void Update()
 	{		
+
 		DoAction ();
 	}
 
