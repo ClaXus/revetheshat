@@ -126,10 +126,11 @@ public class Player : NetworkBehaviour {
 			StartCoroutine (b1Timer ());
 		}
 
-		if (Input.GetKeyDown(KeyCode.LeftShift)){
-			myUnit.Speed*=2;
+		if (Input.GetKeyDown (KeyCode.LeftShift)) {
+			myUnit.Speed *= 1.4f;
+		} else if (Input.GetKeyUp (KeyCode.LeftShift)) {
+			myUnit.Speed /= 1.4f;
 		}
-		
 		if (Input.GetKeyDown (KeyCode.T)) {
 			if (canLevelUp) {
 
