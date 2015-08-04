@@ -16,6 +16,10 @@ public class GameManagerFastGame : MonoBehaviour {
 	[SerializeField]
 	Button panelButtons;
 
+	
+	[SerializeField]
+	Button[] buttonsPanelButtons;
+
 	[SerializeField]
 	Camera placementCamera;
 
@@ -84,5 +88,18 @@ public class GameManagerFastGame : MonoBehaviour {
 			else
 				GameUIDiscoveredOnF[i].SetActive (false);
 		}
+	}
+
+	public void initializeButtons(ref Button[] spellButtons, Player p){
+		pcs = p;
+		for (int i=0;i<spellButtons.Length && i< buttonsPanelButtons.Length; i++) {
+			AddListener(buttonsPanelButtons[i], "init");
+			spellButtons[i] = buttonsPanelButtons[i]; 
+		}
+
+	}
+	void AddListener(Button b, string value)
+	{
+		b.onClick.AddListener(() => pcs.btnClicked(b));
 	}
 }

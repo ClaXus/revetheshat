@@ -12,7 +12,8 @@ public class Unit : MonoBehaviour {
     CharacterController _CharacterController;
     [SerializeField]
 	Player _ControlScript;
-
+	[SerializeField]
+	Unit myUnit;
     public Transform transform {get { return _transform; }set { _transform = value; }}
     public CharacterController charactercontroller{get { return _CharacterController; }set { _CharacterController = value; }}
 	public Player controlscript {get { return _ControlScript; }set { _ControlScript = value; }}
@@ -36,23 +37,26 @@ public class Unit : MonoBehaviour {
 
     #region Controls
 
-    Vector3 _controlvector = Vector3.zero;
+    public Vector3 _controlvector = Vector3.zero;
 
     /// <summary>
     /// RefreshControls collect input controller evolutions and transmit it to movement routine. Network compatible.
     /// </summary>
     public void _RefreshControls()
     {
-        if (controlscript && controlscript.enabled)
-        {
+		if (controlscript) {
             _controlvector = controlscript.direction;
             _controlvector = transform.TransformDirection(_controlvector);
             _rotation = controlscript.rotation;
-            /*if (networkview)
-            {
-                networkview.RPC("_NetworkRefeshControls", RPCMode.Others, _controlvector, _rotation);
-            }*/
-        }
+			//if(isServer)
+			
+			controlscript.RefreshControls(_controlvector,_rotation, this);
+
+			//_NetworkRefeshControls(_controlvector,_rotation);
+			//Debug.LogWarning("NANM");
+            //networkview.RPC("_NetworkRefeshControls", RPCMode.Others, _controlvector, _rotation);
+        	
+		}
     }
 
     /// <summary>
@@ -60,13 +64,24 @@ public class Unit : MonoBehaviour {
     /// </summary>
     /// <param name="control">Move input control. XZ for plan move, Y for jump/crouch</param>
     /// <param name="rot">Angle of rotation it is a Quaternion who represent the 3D angle of rotation.</param>
-    /*[RPC]
+    
+	/*[ClientRpc]
     void _NetworkRefeshControls(Vector3 control, Quaternion rot)
     {
         _controlvector = control;
         _rotation = rot;
     }
 
+
+	[Command]
+	public void CmdRefeshControl (Vector3 control, Quaternion rot)
+	{
+		_NetworkRefeshControls (control, rot);
+		//myUnit._RefreshControls (control, rot);
+	}*/
+
+
+	/*
     void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
     {
         if (stream.isWriting)
@@ -83,21 +98,10 @@ public class Unit : MonoBehaviour {
     }*/
     #endregion Controls
 
-    #region Details
-
-    [SerializeField]
-    string              _name = "Default";
-    [SerializeField]
-    string              _clan = "NoClan";
-    [SerializeField]
-    string              _title = "Title";
-
-    #endregion Details
-
     #region Movement
 
-    Quaternion          _rotation = Quaternion.Euler(0, 0, 0);
-    Vector3             _movevector = Vector3.zero;
+	public Quaternion          _rotation = Quaternion.Euler(0, 0, 0);
+	public Vector3             _movevector = Vector3.zero;
     /// <summary>
     /// Define if unit is sensible to gravity.
     /// </summary>
@@ -180,6 +184,17 @@ public class Unit : MonoBehaviour {
     }
 
     #endregion Movement
+	
+	#region Details
+	
+	[SerializeField]
+	string              _name = "Default";
+	[SerializeField]
+	string              _clan = "NoClan";
+	[SerializeField]
+	string              _title = "Title";
+	
+	#endregion Details
 
     #region Combat
 

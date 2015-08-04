@@ -9,7 +9,7 @@ public class UnitEditor : Editor {
     SerializedProperty transform;
     SerializedProperty characterController;
     SerializedProperty controlScript;
-    SerializedProperty networkView;    
+    //SerializedProperty networkView;    
     List<SerializedProperty> unitCombat;
     List<SerializedProperty> unitMovement;
     List<SerializedProperty> unitDetails;
@@ -26,7 +26,7 @@ public class UnitEditor : Editor {
         transform = serializedObject.FindProperty("_transform");
         characterController = serializedObject.FindProperty("_CharacterController");
         controlScript = serializedObject.FindProperty("_ControlScript");
-        networkView = serializedObject.FindProperty("_Networkview");
+        //networkView = serializedObject.FindProperty("_Networkview");
         unitMovement = new List<SerializedProperty>();
         for(int i = 0; i < MovementProperties.Length; ++i)
         {

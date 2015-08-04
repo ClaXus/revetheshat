@@ -53,7 +53,6 @@ GameObject:
   - 114: {fileID: 11424734}
   - 114: {fileID: 11421812}
   - 54: {fileID: 5445544}
-  - 135: {fileID: 13570358}
   m_Layer: 8
   m_Name: PlayerBase
   m_TagString: Unit
@@ -173,7 +172,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .5
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -256,10 +255,11 @@ MonoBehaviour:
   associateSpells: []
   associateJobs: []
   myPlayer: {fileID: 435774}
-  rateSync: 15
+  rateSync: 20
   gameObject: {fileID: 196860}
   ridgidbody: {fileID: 5445544}
   myCamera: {fileID: 2079156}
+  gm: {fileID: 0}
 --- !u!114 &11424734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,11 +271,11 @@ MonoBehaviour:
   m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: .100000001
+  m_TransformSyncMode: 3
+  m_SendInterval: .0769230798
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
-  m_SyncSpin: 1
+  m_SyncSpin: 0
   m_MovementTheshold: .00100000005
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
@@ -294,14 +294,18 @@ MonoBehaviour:
   _transform: {fileID: 435774}
   _CharacterController: {fileID: 14335080}
   _ControlScript: {fileID: 11421812}
-  _name: Default
-  _clan: NoClan
-  _title: Title
+  myUnit: {fileID: 0}
+  _controlvector: {x: 0, y: 0, z: 0}
+  _rotation: {x: 0, y: 0, z: 0, w: 1}
+  _movevector: {x: 0, y: 0, z: 0}
   _UnitType: 0
   _MoveType: 0
   _Speed: 100
   _JumpHeight: 100
   _FlightSpeed: 100
+  _name: Default
+  _clan: NoClan
+  _title: Title
   _IsDead: 0
   _MaxHp: 100
   _Hp: 100
@@ -352,18 +356,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148454}
   m_Enabled: 1
---- !u!135 &13570358
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196860}
-  m_Material: {fileID: 13400000, guid: e547ccac22417d349bba64cac348a862, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: .5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &14335080
 CharacterController:
   m_ObjectHideFlags: 1
@@ -402,11 +394,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SyncSpin
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TransformSyncMode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
@@ -589,7 +581,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
@@ -599,6 +591,14 @@ Prefab:
       propertyPath: myCamera
       value: 
       objectReference: {fileID: 2079156}
+    - target: {fileID: 0}
+      propertyPath: m_SendInterval
+      value: .0769230798
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rateSync
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196860}

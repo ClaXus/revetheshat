@@ -48,11 +48,11 @@ GameObject:
   - 4: {fileID: 435774}
   - 143: {fileID: 14335080}
   - 114: {fileID: 11430672}
-  - 114: {fileID: 11471928}
   - 114: {fileID: 11493356}
   - 114: {fileID: 11420868}
   - 114: {fileID: 11424734}
-  - 54: {fileID: 5440908}
+  - 114: {fileID: 11421812}
+  - 54: {fileID: 5445544}
   m_Layer: 8
   m_Name: PlayerMage
   m_TagString: Unit
@@ -162,7 +162,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157104}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &5440908
+--- !u!54 &5445544
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -171,7 +171,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: .5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -222,24 +222,66 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 225
-    i1: 28
-    i2: 21
-    i3: 191
-    i4: 150
-    i5: 59
-    i6: 225
-    i7: 68
-    i8: 90
-    i9: 161
-    i10: 216
-    i11: 120
-    i12: 66
-    i13: 3
-    i14: 160
-    i15: 156
-  m_ServerOnly: 1
-  m_LocalPlayerAuthority: 0
+    i0: 233
+    i1: 64
+    i2: 84
+    i3: 216
+    i4: 57
+    i5: 212
+    i6: 91
+    i7: 132
+    i8: 42
+    i9: 7
+    i10: 83
+    i11: 79
+    i12: 204
+    i13: 159
+    i14: 228
+    i15: 74
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &11421812
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9912aef1512354f4ebb5cabb7e2ae2ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellButtons:
+  - {fileID: 11443794, guid: c5fa0628b42fc454aa9fff6fdf421e37, type: 2}
+  - {fileID: 11463224, guid: d7601caf48c1a4a46a3697989ef17cd6, type: 2}
+  - {fileID: 11462058, guid: 4b3cc2d8b9671a94d8e400d9c6533bad, type: 2}
+  - {fileID: 11424578, guid: a86f62b2cc26abf44b94b48817b94066, type: 2}
+  - {fileID: 11469918, guid: ee9e5fa2bac97ba47bebc9a65c32bd53, type: 2}
+  - {fileID: 11489184, guid: 3d56b82ba9431d14cb80487807e2e6d4, type: 2}
+  associateSpells:
+  - {fileID: 11400000, guid: ca510032d3aa4854dbeefd37d3f022b3, type: 2}
+  - {fileID: 11400000, guid: a159f175bca84b34ab57d0398e68e1f0, type: 2}
+  - {fileID: 11400000, guid: c8415598dbf941344ac53bdbfe34b96a, type: 2}
+  - {fileID: 11400000, guid: 6dc585f9de34b8544955c4bda46c6d2c, type: 2}
+  - {fileID: 11400000, guid: 46428d16471082640a5d6acd051b1053, type: 2}
+  - {fileID: 11400000, guid: 1e1bd0a1ed3366e4182b6b308f63d655, type: 2}
+  - {fileID: 11400000, guid: 11163b9bdace7504a8e0a717fa05e9b6, type: 2}
+  - {fileID: 11400000, guid: 29bfdd36826c2134d9a1a217766d478d, type: 2}
+  - {fileID: 11400000, guid: 0885875f444e6f848878a6e6f7af796b, type: 2}
+  associateJobs:
+  - {fileID: 11400000, guid: f2e37cd089a530d48938928f565af0c0, type: 2}
+  - {fileID: 11400000, guid: 408282affa0ff5f46bd92d279af2cda2, type: 2}
+  - {fileID: 11400000, guid: 6e7de5a7b4f39c4419ed87d8217dcba2, type: 2}
+  - {fileID: 11400000, guid: 01ecb9a64ec44e64082e146b248bcd48, type: 2}
+  - {fileID: 11400000, guid: b05dd50fe4127cd418706389f671b487, type: 2}
+  - {fileID: 11400000, guid: 96c77e458d7a96f499eea6f1eb8a54ce, type: 2}
+  - {fileID: 11400000, guid: e97ddab6e18046343bcd7f3766718672, type: 2}
+  myPlayer: {fileID: 435774}
+  rateSync: 20
+  gameObject: {fileID: 196860}
+  ridgidbody: {fileID: 5445544}
+  myCamera: {fileID: 2079156}
+  gm: {fileID: 0}
 --- !u!114 &11424734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,8 +293,8 @@ MonoBehaviour:
   m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: .100000001
+  m_TransformSyncMode: 3
+  m_SendInterval: .0769230798
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
@@ -273,16 +315,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transform: {fileID: 435774}
   _CharacterController: {fileID: 14335080}
-  _ControlScript: {fileID: 0}
-  _Networkview: {fileID: 0}
-  _name: Default
-  _clan: NoClan
-  _title: Title
+  _ControlScript: {fileID: 11421812}
+  myUnit: {fileID: 0}
+  _controlvector: {x: 0, y: 0, z: 0}
+  _rotation: {x: 0, y: 0, z: 0, w: 1}
+  _movevector: {x: 0, y: 0, z: 0}
   _UnitType: 0
   _MoveType: 0
   _Speed: 100
   _JumpHeight: 100
   _FlightSpeed: 100
+  _name: Default
+  _clan: NoClan
+  _title: Title
   _IsDead: 0
   _MaxHp: 100
   _Hp: 100
@@ -306,26 +351,6 @@ MonoBehaviour:
   layermask:
     serializedVersion: 2
     m_Bits: 4294967291
---- !u!114 &11471928
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcc25712f53fbf94f9b6be1119da1e4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellButtons:
-  - {fileID: 0}
-  gm: {fileID: 0}
-  associateSpells:
-  - {fileID: 0}
-  - {fileID: 0}
-  associateJobs:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &11493356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -379,15 +404,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: spellButtons.Array.size
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: associateJobs.Array.size
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: associateSpells.Array.size
-      value: 2
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SyncSpin
@@ -395,7 +420,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TransformSyncMode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
@@ -467,7 +492,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_ServerOnly
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: transform
@@ -479,7 +504,7 @@ Prefab:
       objectReference: {fileID: 435774}
     - target: {fileID: 0}
       propertyPath: m_LocalPlayerAuthority
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
@@ -493,6 +518,189 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spellButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 11443794, guid: c5fa0628b42fc454aa9fff6fdf421e37,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: spellButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 11463224, guid: d7601caf48c1a4a46a3697989ef17cd6,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: spellButtons.Array.data[2]
+      value: 
+      objectReference: {fileID: 11462058, guid: 4b3cc2d8b9671a94d8e400d9c6533bad,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: spellButtons.Array.data[3]
+      value: 
+      objectReference: {fileID: 11424578, guid: a86f62b2cc26abf44b94b48817b94066,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: spellButtons.Array.data[4]
+      value: 
+      objectReference: {fileID: 11469918, guid: ee9e5fa2bac97ba47bebc9a65c32bd53,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: spellButtons.Array.data[5]
+      value: 
+      objectReference: {fileID: 11489184, guid: 3d56b82ba9431d14cb80487807e2e6d4,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: myPlayer
+      value: 
+      objectReference: {fileID: 435774}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: CharacterCam
+      value: 
+      objectReference: {fileID: 2079156}
+    - target: {fileID: 0}
+      propertyPath: gameObject
+      value: 
+      objectReference: {fileID: 196860}
+    - target: {fileID: 0}
+      propertyPath: ridgidbody
+      value: 
+      objectReference: {fileID: 5445544}
+    - target: {fileID: 0}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: e547ccac22417d349bba64cac348a862,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: _ControlScript
+      value: 
+      objectReference: {fileID: 11421812}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AngularDrag
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 2079156}
+    - target: {fileID: 0}
+      propertyPath: m_SendInterval
+      value: .0769230798
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rateSync
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: associateSpells.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ca510032d3aa4854dbeefd37d3f022b3,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: associateSpells.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 29bfdd36826c2134d9a1a217766d478d,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: associateSpells.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0885875f444e6f848878a6e6f7af796b,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: associateSpells.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: a159f175bca84b34ab57d0398e68e1f0,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: associateSpells.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c8415598dbf941344ac53bdbfe34b96a,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: associateSpells.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6dc585f9de34b8544955c4bda46c6d2c,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: associateSpells.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 46428d16471082640a5d6acd051b1053,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: associateSpells.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e1bd0a1ed3366e4182b6b308f63d655,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: associateSpells.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 11163b9bdace7504a8e0a717fa05e9b6,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: associateJobs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: f2e37cd089a530d48938928f565af0c0,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: associateJobs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 408282affa0ff5f46bd92d279af2cda2,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: associateJobs.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e7de5a7b4f39c4419ed87d8217dcba2,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: associateJobs.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 01ecb9a64ec44e64082e146b248bcd48,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: associateJobs.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: b05dd50fe4127cd418706389f671b487,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: associateJobs.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 96c77e458d7a96f499eea6f1eb8a54ce,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: associateJobs.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: e97ddab6e18046343bcd7f3766718672,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196860}

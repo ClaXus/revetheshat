@@ -6,22 +6,27 @@ using System.Collections.Generic;
 
 public class MyNetworkManager : NetworkManager {
 
-	public List<GameObject> playersToAdd;
+	public List<GameObject> players;
+	public List<GameObject> ennemies;
 
 	void Start(){
-		playersToAdd = new List<GameObject>();
-		
+		players = new List<GameObject>();
+		ennemies = new List<GameObject>();
 	}
 
 	public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId){
 		GameObject player = (GameObject)Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
 
-		playersToAdd.Add(player);
+		players.Add(player);
 
 		NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
-
-		//NetworkServer.AddPlayerForConnection (conn, playersToAdd [indexPlayer], playerControllerId);
+		//NetworkServer.AddPlayerForConnection (conn, players [indexPlayer], playerControllerId);
 		//indexPlayer++;
+	}
+
+
+	public void addEnnemyOnServer(GameObject ennemy){
+		//NetworkServer.AddPlayerForConnection
 	}
 
 	/* 
