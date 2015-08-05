@@ -60,10 +60,10 @@ public class PlayerCameraController : MonoBehaviour
         }
     }
 
-    void Start()
-    {
+    void Start()    {
         cameraAngle = transform.rotation;
     }
+
     void Update() // this code is called once per frame
     {
         //float x_input = Input.GetMouseButton(0) || Input.GetMouseButton(1) ? -Input.GetAxis("Mouse Y") : 0.0f;

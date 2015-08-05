@@ -5,13 +5,14 @@ using UnityEngine.Networking;
 using System.Collections.Generic;
 
 public class MyNetworkManager : NetworkManager {
-
+	[SyncVar]
 	public List<GameObject> players;
-	public List<GameObject> ennemies;
+	[SyncVar]
+	public List<GameObject> enemies;
 
 	void Start(){
 		players = new List<GameObject>();
-		ennemies = new List<GameObject>();
+		enemies = new List<GameObject>();
 	}
 
 	public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId){
@@ -25,8 +26,8 @@ public class MyNetworkManager : NetworkManager {
 	}
 
 
-	public void addEnnemyOnServer(GameObject ennemy){
-		//NetworkServer.AddPlayerForConnection
+	public void addEnnemyOnServer(GameObject enemy){
+		enemies.Add (enemy);
 	}
 
 	/* 

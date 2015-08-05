@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class GameManagerFastGame : MonoBehaviour {
-
 	[SerializeField]
 	GameObject[] GameUIDiscoveredOnF;
 
@@ -16,7 +15,6 @@ public class GameManagerFastGame : MonoBehaviour {
 	[SerializeField]
 	Button panelButtons;
 
-	
 	[SerializeField]
 	Button[] buttonsPanelButtons;
 
@@ -78,7 +76,7 @@ public class GameManagerFastGame : MonoBehaviour {
 		hideOrShowGameUiOnF ();
 		panelButtons.gameObject.SetActive (true);
 		placementCamera.gameObject.SetActive (false);
-		messageText.text = "Défendez le totem !";
+		messageText.text = "Défendez à tout prix le totem !";
 	}
 
 	void hideOrShowGameUiOnF(){
@@ -94,12 +92,11 @@ public class GameManagerFastGame : MonoBehaviour {
 		pcs = p;
 		for (int i=0;i<spellButtons.Length && i< buttonsPanelButtons.Length; i++) {
 			AddListener(buttonsPanelButtons[i], "init");
-			spellButtons[i] = buttonsPanelButtons[i]; 
+			spellButtons[i] = buttonsPanelButtons[i];
 		}
-
 	}
-	void AddListener(Button b, string value)
-	{
+
+	void AddListener(Button b, string value){
 		b.onClick.AddListener(() => pcs.btnClicked(b));
 	}
 }

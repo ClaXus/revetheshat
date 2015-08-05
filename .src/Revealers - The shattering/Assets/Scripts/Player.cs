@@ -131,6 +131,8 @@ public class Player : NetworkBehaviour {
 		} else if (Input.GetKeyUp (KeyCode.LeftShift)) {
 			myUnit.Speed /= 1.4f;
 		}
+
+
 		if (Input.GetKeyDown (KeyCode.T)) {
 			if (canLevelUp) {
 
@@ -164,6 +166,7 @@ public class Player : NetworkBehaviour {
 	public void btnClicked(Button b){
 		currentButton = b;
 		currentIndex = Array.IndexOf (spellButtons, b);
+		Debug.LogWarning ("CurrentIndex:" + currentIndex);
 		StartCoroutine(b1Timer());
 	}
 	
@@ -220,7 +223,6 @@ public class Player : NetworkBehaviour {
 			Rpc_NetworkRefeshControls (control, _rotation);
 		else 
 			CmdRefeshControl(control, _rotation);
-
 	}
 
 	[ClientRpc]
@@ -230,6 +232,7 @@ public class Player : NetworkBehaviour {
 			myU._rotation = _rotation;
 		}
 	}
+
 	[Command]
 	public void CmdRefeshControl (Vector3 control, Quaternion rot) {
 		Rpc_NetworkRefeshControls (control, _rotation);

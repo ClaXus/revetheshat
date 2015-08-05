@@ -255,7 +255,7 @@ MonoBehaviour:
   - {fileID: 11443794, guid: c5fa0628b42fc454aa9fff6fdf421e37, type: 2}
   - {fileID: 11463224, guid: d7601caf48c1a4a46a3697989ef17cd6, type: 2}
   - {fileID: 11462058, guid: 4b3cc2d8b9671a94d8e400d9c6533bad, type: 2}
-  - {fileID: 11424578, guid: a86f62b2cc26abf44b94b48817b94066, type: 2}
+  - {fileID: 11462058, guid: eafc74197b32c904688ff8b69158875e, type: 2}
   - {fileID: 11469918, guid: ee9e5fa2bac97ba47bebc9a65c32bd53, type: 2}
   - {fileID: 11489184, guid: 3d56b82ba9431d14cb80487807e2e6d4, type: 2}
   associateSpells:
@@ -281,6 +281,8 @@ MonoBehaviour:
   gameObject: {fileID: 196860}
   ridgidbody: {fileID: 5445544}
   myCamera: {fileID: 2079156}
+  Gmfg: {fileID: 0}
+  myUnit: {fileID: 11430672}
   gm: {fileID: 0}
 --- !u!114 &11424734
 MonoBehaviour:
@@ -322,9 +324,9 @@ MonoBehaviour:
   _movevector: {x: 0, y: 0, z: 0}
   _UnitType: 0
   _MoveType: 0
-  _Speed: 100
-  _JumpHeight: 100
-  _FlightSpeed: 100
+  _Speed: 65
+  _JumpHeight: 80
+  _FlightSpeed: 65
   _name: Default
   _clan: NoClan
   _title: Title
@@ -536,7 +538,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: spellButtons.Array.data[3]
       value: 
-      objectReference: {fileID: 11424578, guid: a86f62b2cc26abf44b94b48817b94066,
+      objectReference: {fileID: 11462058, guid: eafc74197b32c904688ff8b69158875e,
         type: 2}
     - target: {fileID: 0}
       propertyPath: spellButtons.Array.data[4]
@@ -701,6 +703,22 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: e97ddab6e18046343bcd7f3766718672,
         type: 2}
+    - target: {fileID: 0}
+      propertyPath: _Speed
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _FlightSpeed
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _JumpHeight
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: myUnit
+      value: 
+      objectReference: {fileID: 11430672}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196860}
