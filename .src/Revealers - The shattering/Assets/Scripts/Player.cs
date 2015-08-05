@@ -52,7 +52,7 @@ public class Player : NetworkBehaviour {
 	Quaternion _rotation = Quaternion.identity;
 	
 	void Start(){
-		if (!isLocalPlayer && !isServer)
+		if (!isLocalPlayer)
 			myCamera.enabled = (false);
 		if (isServer)
 			gm = this;
@@ -66,7 +66,7 @@ public class Player : NetworkBehaviour {
 		DoAction ();
 	}
 
-	/*void FixedUpdate(){
+	void FixedUpdate(){
 		TransmitPosition ();
 		LerpPosition ();
 	}
@@ -86,7 +86,7 @@ public class Player : NetworkBehaviour {
 	void TransmitPosition(){
 		if(isLocalPlayer)
 			CmdProvidePositionToServer (myPlayer.position);
-	}*/
+	}
 	
 	void DoAction(){
 		if (!isLocalPlayer)
@@ -95,7 +95,6 @@ public class Player : NetworkBehaviour {
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {
 			currentIndex = 0;
 			currentButton = spellButtons [0];
-			
 			Debug.LogWarning ("Fire Ball !");
 			StartCoroutine (b1Timer ());
 		}
@@ -218,10 +217,12 @@ public class Player : NetworkBehaviour {
 	private Unit myU;
 
 	public void RefreshControls(Vector3 control, Quaternion rot, Unit u) {
-		myU = u;
+		myU = u;			
+		myU._controlvector = control;
+		myU._rotation = _rotation;
 		if (isServer)
 			Rpc_NetworkRefeshControls (control, _rotation);
-		else 
+		else if(isLocalPlayer)
 			CmdRefeshControl(control, _rotation);
 	}
 

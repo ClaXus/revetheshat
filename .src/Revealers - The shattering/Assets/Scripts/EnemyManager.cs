@@ -24,12 +24,21 @@ public class EnemyManager : NetworkBehaviour
 
 	void Start () {
 		List<GameObject> InGameEnnemies = new List<GameObject> ();
-		//if(isServer)
-		InvokeRepeating ("Cmd_Spawn", spawnTime, spawnTime);
+		if(isServer)
+			InvokeRepeating ("Spawn", spawnTime, spawnTime);
 	}
-
 	
 	public void Spawn() {
+		Debug.LogWarning ("Spawn");
+		Debug.LogWarning ("RPCSpawn");
+		// Find a random index between zero and one less than the number of spawn points.
+		int spawnPointIndex = Random.Range (0, spawnPoints.Length);
+		// Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
+		GameObject instantiateObject = (GameObject) Instantiate(enemies[0], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+		instantiateObject.AddComponent (typeof(NetworkIdentity));
+		InGameEnnemies.Add (instantiateObject);
+		//addEnnemyOnServer (enemies [enemyNumber]));
+		enemyNumber++;
 		if (isServer)
 			Rpc_Spawn ();
 		else 
@@ -38,6 +47,7 @@ public class EnemyManager : NetworkBehaviour
 	
 	[ClientRpc]
 	void Rpc_Spawn() {
+		Debug.LogWarning ("RPCSpawn");
 		// Find a random index between zero and one less than the number of spawn points.
 		int spawnPointIndex = Random.Range (0, spawnPoints.Length);
 		// Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
@@ -50,13 +60,16 @@ public class EnemyManager : NetworkBehaviour
 
 	[Command]
 	void Cmd_Spawn (){
-		// Find a random index between zero and one less than the number of spawn points.
+		Debug.LogWarning ("CMDSpawn");
+		
+		Rpc_Spawn ();
+		/*// Find a random index between zero and one less than the number of spawn points.
 		int spawnPointIndex = Random.Range (0, spawnPoints.Length);
 		// Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
 		GameObject instantiateObject = (GameObject) Instantiate(enemies[0], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 		instantiateObject.AddComponent (typeof(NetworkIdentity));
 		InGameEnnemies.Add (instantiateObject);
 		//addEnnemyOnServer (enemies [enemyNumber]));
-		enemyNumber++;
+		enemyNumber++;*/
 	}
 }
