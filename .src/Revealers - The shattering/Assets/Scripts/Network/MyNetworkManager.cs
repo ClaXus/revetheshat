@@ -5,9 +5,9 @@ using UnityEngine.Networking;
 using System.Collections.Generic;
 
 public class MyNetworkManager : NetworkManager {
-	[SyncVar]
+	//[SyncVar]
 	public List<GameObject> players;
-	[SyncVar]
+	//[SyncVar]
 	public List<GameObject> enemies;
 
 	void Start(){

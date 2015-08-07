@@ -15,7 +15,7 @@ public class EnemyManager : NetworkBehaviour
 	[SerializeField]
 	Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
 
-	[SyncVar]
+	//[SyncVar]
 	public List<GameObject> InGameEnnemies;
 
 	//public GameManagerFastGame Gmfg;

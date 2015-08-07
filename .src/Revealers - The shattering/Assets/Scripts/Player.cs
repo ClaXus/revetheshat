@@ -243,7 +243,6 @@ public class Player : NetworkBehaviour {
 
 	/***************************** THIS IS THE CONTROLSCRIPT PART ****************************************************/
 	
-	
 	/// <summary>
 	/// Direction vector provided by Unit controller.
 	/// </summary>
