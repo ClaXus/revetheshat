@@ -10,7 +10,6 @@ GameObject:
   - 4: {fileID: 457234}
   - 143: {fileID: 14361204}
   - 114: {fileID: 11473128}
-  - 148: {fileID: 14822404}
   - 135: {fileID: 13527930}
   m_Layer: 8
   m_Name: Totem
@@ -106,15 +105,18 @@ MonoBehaviour:
   _transform: {fileID: 457234}
   _CharacterController: {fileID: 14361204}
   _ControlScript: {fileID: 0}
-  _Networkview: {fileID: 14822404}
-  _name: Default
-  _clan: NoClan
-  _title: Title
+  myUnit: {fileID: 0}
+  _controlvector: {x: 0, y: 0, z: 0}
+  _rotation: {x: 0, y: 0, z: 0, w: 1}
+  _movevector: {x: 0, y: 0, z: 0}
   _UnitType: 0
   _MoveType: 1
   _Speed: 100
   _JumpHeight: 100
   _FlightSpeed: 100
+  _name: Default
+  _clan: NoClan
+  _title: Title
   _IsDead: 0
   _MaxHp: 100
   _Hp: 100
@@ -151,18 +153,6 @@ CharacterController:
   m_SkinWidth: .0799999982
   m_MinMoveDistance: .00100000005
   m_Center: {x: 0, y: 1, z: 0}
---- !u!148 &14822404
-NetworkView:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 139546}
-  m_Enabled: 1
-  m_StateSynchronization: 1
-  m_Observed: {fileID: 11473128}
-  m_ViewID:
-    m_ID: 0
-    m_Type: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

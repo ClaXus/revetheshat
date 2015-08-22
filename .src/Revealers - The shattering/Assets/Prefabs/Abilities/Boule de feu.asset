@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: Boule de feu
   m_EditorClassIdentifier: 
   _description: Hurl a fire ball to your target dealing damages.
-  _cooldown: .100000001
-  _castTime: .400000006
-  _projectile: {fileID: 175692, guid: ba32131531c9e2e41aa9e06eda92420d, type: 2}
   _correspondingSprite: {fileID: 21300000, guid: d80f5bf92a7db3d46bfb25a2c758fe4e,
     type: 3}
+  _cooldown: 1
+  _castTime: .400000006
+  _projectile: {fileID: 175692, guid: ba32131531c9e2e41aa9e06eda92420d, type: 2}
   _value: 15

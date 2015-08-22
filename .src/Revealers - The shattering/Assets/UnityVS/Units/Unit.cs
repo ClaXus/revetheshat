@@ -11,12 +11,13 @@ public class Unit : MonoBehaviour {
     [SerializeField]
     CharacterController _CharacterController;
     [SerializeField]
-	Player _ControlScript;
+	UnitControl _ControlScript;
 	[SerializeField]
 	Unit myUnit;
+
     public Transform transform {get { return _transform; }set { _transform = value; }}
     public CharacterController charactercontroller{get { return _CharacterController; }set { _CharacterController = value; }}
-	public Player controlscript {get { return _ControlScript; }set { _ControlScript = value; }}
+	public UnitControl controlscript {get { return _ControlScript; }set { _ControlScript = value; }}
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,7 @@ public class Unit : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         _RefreshControls();
+		//_RefreshRealPosition ();
         _Move();
 	}
 
@@ -33,6 +35,7 @@ public class Unit : MonoBehaviour {
     void FixedUpdate()
     {
         _RefreshControls();
+		//_RefreshRealPosition ();
     }
 
     #region Controls
@@ -45,9 +48,9 @@ public class Unit : MonoBehaviour {
     public void _RefreshControls()
     {
 		if (controlscript) {
-            _controlvector = controlscript.direction;
-            _controlvector = transform.TransformDirection(_controlvector);
-            _rotation = controlscript.rotation;
+			_controlvector = controlscript.direction;
+			_controlvector = transform.TransformDirection(_controlvector);
+			_rotation = controlscript.rotation;
 			//if(isServer)
 			
 			controlscript.RefreshControls(_controlvector,_rotation, this);
@@ -58,6 +61,20 @@ public class Unit : MonoBehaviour {
         	
 		}
     }
+
+	public void _RefreshRealPosition()
+	{
+		if (controlscript) {
+			//if(isServer)
+			
+			controlscript.RefreshRealPosition(_transform.position, this);
+			
+			//_NetworkRefeshControls(_controlvector,_rotation);
+			//Debug.LogWarning("NANM");
+			//networkview.RPC("_NetworkRefeshControls", RPCMode.Others, _controlvector, _rotation);
+			
+		}
+	}
 
     /// <summary>
     /// NetworkRefreshControls is designed to be a remote procedure call to refresh controls and create Network prevention on other clients.

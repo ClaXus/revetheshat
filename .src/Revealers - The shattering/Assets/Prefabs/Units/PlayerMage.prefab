@@ -251,6 +251,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9912aef1512354f4ebb5cabb7e2ae2ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameObject: {fileID: 196860}
+  rateSync: 20
+  myUnit: {fileID: 435774}
+  gm: {fileID: 11421812}
   spellButtons:
   - {fileID: 11443794, guid: c5fa0628b42fc454aa9fff6fdf421e37, type: 2}
   - {fileID: 11463224, guid: d7601caf48c1a4a46a3697989ef17cd6, type: 2}
@@ -276,14 +280,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b05dd50fe4127cd418706389f671b487, type: 2}
   - {fileID: 11400000, guid: 96c77e458d7a96f499eea6f1eb8a54ce, type: 2}
   - {fileID: 11400000, guid: e97ddab6e18046343bcd7f3766718672, type: 2}
-  myPlayer: {fileID: 435774}
-  rateSync: 20
-  gameObject: {fileID: 196860}
   ridgidbody: {fileID: 5445544}
   myCamera: {fileID: 2079156}
   Gmfg: {fileID: 0}
-  myUnit: {fileID: 11430672}
-  gm: {fileID: 0}
+  myU: {fileID: 11430672}
 --- !u!114 &11424734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -717,6 +717,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: myUnit
+      value: 
+      objectReference: {fileID: 435774}
+    - target: {fileID: 0}
+      propertyPath: myTransform
+      value: 
+      objectReference: {fileID: 435774}
+    - target: {fileID: 0}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 11421812}
+    - target: {fileID: 0}
+      propertyPath: myU
       value: 
       objectReference: {fileID: 11430672}
     m_RemovedComponents: []

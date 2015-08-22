@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using System;
 
-public class Player : NetworkBehaviour {
+public class Player : UnitControl {
 	[SerializeField]
 	Button[] spellButtons;
 	
@@ -14,18 +14,6 @@ public class Player : NetworkBehaviour {
 	
 	[SerializeField]
 	JobPattern[] associateJobs;
-
-	[SyncVar]
-	private Vector3 syncPos;
-
-	[SerializeField] 
-	Transform myPlayer;
-
-	[SerializeField]
-	float rateSync = 15f;
-
-	[SerializeField]
-	GameObject gameObject;
 
 	[SerializeField]
 	Rigidbody ridgidbody;
@@ -36,62 +24,66 @@ public class Player : NetworkBehaviour {
 	[SerializeField]
 	GameManagerFastGame Gmfg;
 
-	[SerializeField]
-	Unit myUnit;
-
-	public Player gm;
-
 	private bool isRunning = false;
 	private Button currentButton;
 	private int currentIndex;
 	private bool canLevelUp;
-
-	[SyncVar]
-	Vector3 _direction = Vector3.zero;
-	[SyncVar]
-	Quaternion _rotation = Quaternion.identity;
+	private bool accelerating = false;
+	private float acceleratingRatio = 1.4f;
+	private float baseSpeed;
 	
 	void Start(){
-		if (!isLocalPlayer)
-			myCamera.enabled = (false);
 		if (isServer)
 			gm = this;
+		if (!isLocalPlayer)
+			myCamera.enabled = (false);
 		Gmfg = FindObjectOfType(typeof(GameManagerFastGame)) as GameManagerFastGame;
 		Gmfg.initializeButtons (ref spellButtons, this);
+		baseSpeed = myU.Speed;
 	}
 	
-	void Update()
-	{		
-
+	void Update() {		
 		DoAction ();
 	}
 
 	void FixedUpdate(){
 		TransmitPosition ();
 		LerpPosition ();
+		if (isServer)
+			Rpc_TransmitPosition ();
 	}
-
-	void LerpPosition () {
+	
+	protected void LerpPosition () {
 		if (!isLocalPlayer) {
-			myPlayer.transform.position = Vector3.Lerp (myPlayer.position, syncPos, Time.deltaTime * rateSync);
+			Debug.LogWarning ("LerpPosition");
+			myUnit.transform.position = Vector3.Lerp (myUnit.position, syncPos, Time.deltaTime * rateSync);
 		}
 	}
 	
 	[Command]
-	void CmdProvidePositionToServer (Vector3 pos) {
+	protected void CmdProvidePositionToServer (Vector3 pos) {
+		Debug.LogWarning ("CmdPosition");
 		syncPos = pos;
 	}
 	
 	[ClientCallback]
-	void TransmitPosition(){
-		if(isLocalPlayer)
-			CmdProvidePositionToServer (myPlayer.position);
+	protected void TransmitPosition(){
+		if (isLocalPlayer) {
+			Debug.LogWarning ("CallBackPosition");
+			CmdProvidePositionToServer (myUnit.position);
+		}
 	}
-	
+
+	[ClientRpc]
+	protected void Rpc_TransmitPosition(){
+		//Debug.LogWarning ("Rpc Position");
+		//if(isServer)
+			//myUnit.transform.position = Vector3.Lerp (myUnit.position, syncPos, Time.deltaTime * rateSync);
+	}
+
 	void DoAction(){
 		if (!isLocalPlayer)
 			return;
-		//Debug.LogWarning ("Do Action !");
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {
 			currentIndex = 0;
 			currentButton = spellButtons [0];
@@ -115,51 +107,33 @@ public class Player : NetworkBehaviour {
 		}
 		
 		if (Input.GetKeyDown (KeyCode.A)) {
-			currentIndex = 6;
+			currentIndex = 7;
 			currentButton = spellButtons [4];
 			StartCoroutine (b1Timer ());
 		}
 		if (Input.GetKeyDown (KeyCode.E)) {
-			currentIndex = 7;
+			currentIndex = 8;
 			currentButton = spellButtons [5];
 			StartCoroutine (b1Timer ());
 		}
 
-		if (Input.GetKeyDown (KeyCode.LeftShift)) {
-			myUnit.Speed *= 1.4f;
-		} else if (Input.GetKeyUp (KeyCode.LeftShift)) {
-			myUnit.Speed /= 1.4f;
+		if (Input.GetKey (KeyCode.LeftShift)) {
+			accelerating = true;
+		} else if(accelerating) {
+			accelerating = false;
 		}
+		myU.Speed = accelerating?baseSpeed*acceleratingRatio:baseSpeed;
 
-
-		if (Input.GetKeyDown (KeyCode.T)) {
+		if (Input.GetKey (KeyCode.T)) {
 			if (canLevelUp) {
 
 			}
 		}
 
-		/*if (Input.GetKey (KeyCode.Z)) {
-			ridgidbody.MovePosition (ridgidbody.position + Vector3.forward * rateSync * Time.deltaTime);
-			//Debug.LogWarning ("Z");
-		}
-		
-		if (Input.GetKey(KeyCode.S))
-			ridgidbody.MovePosition(ridgidbody.position - Vector3.forward * rateSync * Time.deltaTime);
-		
-		if (Input.GetKey(KeyCode.D))
-			ridgidbody.MovePosition(ridgidbody.position + Vector3.right * rateSync * Time.deltaTime);
-		
-		if (Input.GetKey(KeyCode.Q))
-			ridgidbody.MovePosition(ridgidbody.position - Vector3.right * rateSync * Time.deltaTime);*/
-
 		direction = Vector3.forward * (Input.GetAxisRaw("Run/Back") + (Input.GetMouseButton(0) && Input.GetMouseButton(1) ? 1:0));
 		direction += Vector3.right * Input.GetAxisRaw("Left/Right");
 		direction += Vector3.up * Input.GetAxisRaw("Jump");
 		rotation = Quaternion.Euler(Input.GetAxis("Mouse Y") * (Input.GetMouseButton(0) ? 1 : 0), Input.GetAxis("Mouse X") * (Input.GetMouseButton(1) ? 1 : 0), 0);
-
-		//if (Input.GetKeyDown(KeyCode.LeftShift)){
-		//	myUnit.Speed/=2;
-		//}
 	}
 	
 	public void btnClicked(Button b){
@@ -211,65 +185,49 @@ public class Player : NetworkBehaviour {
 		currentButton.tag = "launchingSpell";
 	}
 
-	
-	/***************************** THIS IS THE UNITSCRIPT PART ****************************************************/
 
-	private Unit myU;
-
-	public void RefreshControls(Vector3 control, Quaternion rot, Unit u) {
-		myU = u;			
-		myU._controlvector = control;
-		myU._rotation = _rotation;
-		if (isServer)
-			Rpc_NetworkRefeshControls (control, _rotation);
-		else if(isLocalPlayer)
-			CmdRefeshControl(control, _rotation);
-	}
-
-	[ClientRpc]
-	void Rpc_NetworkRefeshControls(Vector3 control, Quaternion rot) {
-		if (myU) {
-			myU._controlvector = control;
-			myU._rotation = _rotation;
+	/*
+	 * public virtual void  LerpPosition () {
+		if (!isLocalPlayer) {
+			myTransform.position = myTransform.position;//Vector3.Lerp (myTransform.position, syncPos, Time.deltaTime * 15);
 		}
 	}
-
+	
 	[Command]
-	public void CmdRefeshControl (Vector3 control, Quaternion rot) {
-		Rpc_NetworkRefeshControls (control, _rotation);
-		gm.RefreshControls (control, _rotation, myU);
-	}
-
-
-	/***************************** THIS IS THE CONTROLSCRIPT PART ****************************************************/
-	
-	/// <summary>
-	/// Direction vector provided by Unit controller.
-	/// </summary>
-	public Vector3 direction
-	{
-		get
-		{
-			return _direction;
-		}
-		protected set
-		{
-			_direction = value;
-		}
+	public virtual void  CmdProvidePositionToServer (Vector3 pos) {
+		//syncPos = pos;
 	}
 	
-	/// <summary>
-	/// Rotation angle provided by Unit controller.
-	/// </summary>
-	public Quaternion rotation
-	{
-		get
-		{
-			return _rotation;
-		}
-		protected set
-		{
-			_rotation = value;
+	[ClientRpc]
+	public virtual void  Rpc_TransmitPosition(){
+		//if(isLocalPlayer)
+			//CmdProvidePositionToServer (myTransform.position);
+	}
+	 */
+	
+
+
+	/*
+	void FixedUpdate(){
+		if(isServer)
+			Rpc_TransmitPosition ();
+		LerpPosition ();
+	}
+
+	void LerpPosition () {
+		if (!isLocalPlayer) {
+			myTransform.position = Vector3.Lerp (myTransform.position, syncPos, Time.deltaTime * rateSync);
 		}
 	}
+	
+	[Command]
+	void CmdProvidePositionToServer (Vector3 pos) {
+		syncPos = pos;
+	}
+	
+	[ClientRpc]
+	void Rpc_TransmitPosition(){
+		if(isLocalPlayer)
+			CmdProvidePositionToServer (myTransform.position);
+	}*/
 }

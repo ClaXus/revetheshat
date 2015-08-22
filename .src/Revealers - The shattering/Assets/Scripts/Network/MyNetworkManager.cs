@@ -21,6 +21,8 @@ public class MyNetworkManager : NetworkManager {
 		players.Add(player);
 
 		NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+
+		//NetworkServer.SpawnObjects ();
 		//NetworkServer.AddPlayerForConnection (conn, players [indexPlayer], playerControllerId);
 		//indexPlayer++;
 	}

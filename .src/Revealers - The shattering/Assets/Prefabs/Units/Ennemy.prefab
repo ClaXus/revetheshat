@@ -29,6 +29,9 @@ GameObject:
   - 114: {fileID: 11481914}
   - 135: {fileID: 13563236}
   - 54: {fileID: 5423908}
+  - 114: {fileID: 11449782}
+  - 114: {fileID: 11457068}
+  - 114: {fileID: 11444682}
   m_Layer: 8
   m_Name: Ennemy
   m_TagString: Unit
@@ -99,7 +102,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147184}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 1
@@ -107,6 +110,75 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &11444682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: .100000001
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: .00100000005
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &11449782
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 164
+    i1: 49
+    i2: 220
+    i3: 156
+    i4: 94
+    i5: 88
+    i6: 181
+    i7: 244
+    i8: 57
+    i9: 116
+    i10: 215
+    i11: 49
+    i12: 173
+    i13: 20
+    i14: 172
+    i15: 178
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0
+--- !u!114 &11457068
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a720b973d1e31348bde495d68b521b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTransform: {fileID: 432520}
+  gameObject: {fileID: 147184}
+  rateSync: 15
+  gm: {fileID: 11457068}
+  meThis: {fileID: 0}
+  nI: {fileID: 11449782}
 --- !u!114 &11481914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,7 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transform: {fileID: 432520}
   _CharacterController: {fileID: 14350320}
-  _ControlScript: {fileID: 0}
+  _ControlScript: {fileID: 11457068}
   myUnit: {fileID: 0}
   _controlvector: {x: 0, y: 0, z: 0}
   _rotation: {x: 0, y: 0, z: 0, w: 1}
@@ -190,8 +262,48 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPlayerAuthority
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: myTransform
+      value: 
+      objectReference: {fileID: 432520}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _ControlScript
+      value: 
+      objectReference: {fileID: 11457068}
+    - target: {fileID: 0}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 11457068}
+    - target: {fileID: 0}
+      propertyPath: m_ServerOnly
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: nI
+      value: 
+      objectReference: {fileID: 11449782}
+    - target: {fileID: 0}
+      propertyPath: meThis
+      value: 
+      objectReference: {fileID: 147184}
+    - target: {fileID: 0}
+      propertyPath: m_TransformSyncMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: gameObject
+      value: 
+      objectReference: {fileID: 147184}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147184}

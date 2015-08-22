@@ -638,7 +638,6 @@ GameObject:
   - 223: {fileID: 249837210}
   - 114: {fileID: 249837209}
   - 114: {fileID: 249837208}
-  - 114: {fileID: 249837207}
   - 114: {fileID: 249837206}
   - 114: {fileID: 249837212}
   m_Layer: 5
@@ -659,62 +658,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9682edef40e75d84d93e0019b0456e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &249837207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 249837205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bcd69bd5ee51934a86b18f8da059b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NetworkPort: 7777
-  m_NetworkAddress: localhost
-  m_DontDestroyOnLoad: 1
-  m_RunInBackground: 1
-  m_SendPeerInfo: 0
-  m_MaxDelay: .00999999978
-  m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 0}
-  m_AutoCreatePlayer: 1
-  m_PlayerSpawnMethod: 0
-  m_OfflineScene: 
-  m_OnlineScene: 
-  m_SpawnPrefabs: []
-  m_CustomConfig: 0
-  m_MaxConnections: 4
-  m_ConnectionConfig:
-    m_PacketSize: 1500
-    m_FragmentSize: 500
-    m_ResendTimeout: 1200
-    m_DisconnectTimeout: 2000
-    m_ConnectTimeout: 2000
-    m_MinUpdateTimeout: 10
-    m_PingTimeout: 500
-    m_ReducedPingTimeout: 100
-    m_AllCostTimeout: 20
-    m_NetworkDropThreshold: 5
-    m_OverflowDropThreshold: 5
-    m_MaxConnectionAttempt: 10
-    m_AckDelay: 33
-    m_MaxCombinedReliableMessageSize: 100
-    m_MaxCombinedReliableMessageCount: 10
-    m_MaxSentMessageQueueSize: 128
-    m_IsAcksLong: 0
-    m_Channels: []
-  m_Channels: 
-  m_UseSimulator: 0
-  m_SimulatedLatency: 1
-  m_PacketLossPercentage: 0
-  m_MatchHost: mm.unet.unity3d.com
-  m_MatchPort: 443
-  isNetworkActive: 0
-  matchMaker: {fileID: 0}
-  matchName: default
-  matchSize: 4
-  playersToAdd: []
 --- !u!114 &249837208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1099,7 +1042,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1439831457}
+      - m_Target: {fileID: 0}
         m_MethodName: StartServer
         m_Mode: 1
         m_Arguments:
@@ -3699,7 +3642,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1794355915}
+      - m_Target: {fileID: 0}
         m_MethodName: StartServer
         m_Mode: 1
         m_Arguments:
@@ -4323,7 +4266,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1439831457}
+      - m_Target: {fileID: 0}
         m_MethodName: RefreshHostList
         m_Mode: 1
         m_Arguments:
@@ -4440,7 +4383,6 @@ GameObject:
   - 223: {fileID: 1439831463}
   - 114: {fileID: 1439831462}
   - 114: {fileID: 1439831461}
-  - 114: {fileID: 1439831457}
   - 114: {fileID: 1439831459}
   m_Layer: 5
   m_Name: 'LobbyCanvas '
@@ -4449,62 +4391,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1439831457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1439831456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bcd69bd5ee51934a86b18f8da059b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NetworkPort: 7777
-  m_NetworkAddress: localhost
-  m_DontDestroyOnLoad: 1
-  m_RunInBackground: 1
-  m_SendPeerInfo: 0
-  m_MaxDelay: .00999999978
-  m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 0}
-  m_AutoCreatePlayer: 1
-  m_PlayerSpawnMethod: 0
-  m_OfflineScene: 
-  m_OnlineScene: 
-  m_SpawnPrefabs: []
-  m_CustomConfig: 0
-  m_MaxConnections: 4
-  m_ConnectionConfig:
-    m_PacketSize: 1500
-    m_FragmentSize: 500
-    m_ResendTimeout: 1200
-    m_DisconnectTimeout: 2000
-    m_ConnectTimeout: 2000
-    m_MinUpdateTimeout: 10
-    m_PingTimeout: 500
-    m_ReducedPingTimeout: 100
-    m_AllCostTimeout: 20
-    m_NetworkDropThreshold: 5
-    m_OverflowDropThreshold: 5
-    m_MaxConnectionAttempt: 10
-    m_AckDelay: 33
-    m_MaxCombinedReliableMessageSize: 100
-    m_MaxCombinedReliableMessageCount: 10
-    m_MaxSentMessageQueueSize: 128
-    m_IsAcksLong: 0
-    m_Channels: []
-  m_Channels: 
-  m_UseSimulator: 0
-  m_SimulatedLatency: 1
-  m_PacketLossPercentage: 0
-  m_MatchHost: mm.unet.unity3d.com
-  m_MatchPort: 443
-  isNetworkActive: 0
-  matchMaker: {fileID: 0}
-  matchName: default
-  matchSize: 4
-  playersToAdd: []
 --- !u!224 &1439831458
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4852,9 +4738,8 @@ MonoBehaviour:
   matchMaker: {fileID: 0}
   matchName: default
   matchSize: 4
-  playersToAdd:
-  - {fileID: 0}
-  - {fileID: 0}
+  players: []
+  enemies: []
 --- !u!4 &1509386672
 Transform:
   m_ObjectHideFlags: 0
@@ -5638,7 +5523,6 @@ GameObject:
   - 223: {fileID: 1794355917}
   - 114: {fileID: 1794355920}
   - 114: {fileID: 1794355919}
-  - 114: {fileID: 1794355915}
   - 114: {fileID: 1794355918}
   m_Layer: 5
   m_Name: ProfilCanvas
@@ -5647,62 +5531,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1794355915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1794355914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bcd69bd5ee51934a86b18f8da059b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NetworkPort: 7777
-  m_NetworkAddress: localhost
-  m_DontDestroyOnLoad: 1
-  m_RunInBackground: 1
-  m_SendPeerInfo: 0
-  m_MaxDelay: .00999999978
-  m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 0}
-  m_AutoCreatePlayer: 1
-  m_PlayerSpawnMethod: 0
-  m_OfflineScene: 
-  m_OnlineScene: 
-  m_SpawnPrefabs: []
-  m_CustomConfig: 0
-  m_MaxConnections: 4
-  m_ConnectionConfig:
-    m_PacketSize: 1500
-    m_FragmentSize: 500
-    m_ResendTimeout: 1200
-    m_DisconnectTimeout: 2000
-    m_ConnectTimeout: 2000
-    m_MinUpdateTimeout: 10
-    m_PingTimeout: 500
-    m_ReducedPingTimeout: 100
-    m_AllCostTimeout: 20
-    m_NetworkDropThreshold: 5
-    m_OverflowDropThreshold: 5
-    m_MaxConnectionAttempt: 10
-    m_AckDelay: 33
-    m_MaxCombinedReliableMessageSize: 100
-    m_MaxCombinedReliableMessageCount: 10
-    m_MaxSentMessageQueueSize: 128
-    m_IsAcksLong: 0
-    m_Channels: []
-  m_Channels: 
-  m_UseSimulator: 0
-  m_SimulatedLatency: 1
-  m_PacketLossPercentage: 0
-  m_MatchHost: mm.unet.unity3d.com
-  m_MatchPort: 443
-  isNetworkActive: 0
-  matchMaker: {fileID: 0}
-  matchName: default
-  matchSize: 4
-  playersToAdd: []
 --- !u!224 &1794355916
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7260,7 +7088,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1794355915}
+      - m_Target: {fileID: 0}
         m_MethodName: RefreshHostList
         m_Mode: 1
         m_Arguments:
